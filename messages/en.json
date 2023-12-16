@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"helloWorld": "Hello World",
 	"greeting": "Hello {name}",
-	"helloWorld": "Hello World"
+	"welcome": "Welcome to SvelteKit"
 }
