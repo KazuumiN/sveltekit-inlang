@@ -7,5 +7,12 @@ export const handle = async ({ event, resolve }) => {
   setLanguageTag(lang);
   // サーバーサイドで扱うためにlocalsにセット
   event.locals.lang = lang;
-  return await resolve(event);
+  return await resolve(event, {
+		transformPageChunk({ done, html }) {
+      // レンダリングの最後にのみ実行する
+			if (done) {
+				return html.replace("%lang%", lang)
+			}
+		},
+	})
 }
